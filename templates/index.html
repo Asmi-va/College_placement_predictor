@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <title>Placement Prediction</title>
+</head>
+
+<body>
+  <div class="intro">
+    <h1>Welcome to Placement Prediction App</h1>
+  </div>
+  <form action="{{ url_for('predict') }}" name="form" method="GET">
+    <div class="form-group">
+      <label for="stream">Select Stream:</label>
+      <select name="stream" id="stream" required>
+        <option value="" disabled selected>Please select</option>
+        <option value="0">Civil</option>
+        <option value="1">CSE</option>
+        <option value="2">Electronics</option>
+        <option value="3">EnTC</option>
+        <option value="4">Mechanical</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="cgpa">Enter CGPA:</label>
+      <input type="number" step="0.01" name="cgpa" id="cgpa" min="0" pattern="^[0-9]\d*$" required />
+    </div>
+    <div class="form-group">
+      <label for="internship">Enter Previous Internships:</label>
+      <input type="number" name="internship" id="internship" min="0" pattern="^[0-9]\d*$" required />
+    </div>
+    <div class="form-group">
+      <label for="backlogs">Enter Backlogs:</label>
+      <input type="number" name="backlogs" id="backlogs" min="0" pattern="^[0-9]\d*$" required />
+    </div>
+    <div class="form-group">
+      <label for="gender">Select Gender:</label>
+      <select name="gender" id="gender" required>
+        <option value="" disabled selected>Please select</option>
+        <option value="0">Female</option>
+        <option value="1">Male</option>
+      </select>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+  <div class="end">
+    <h2>This website uses Random Forest Model to predict results</h2>
+  </div>
+</body>
+
+</html>
